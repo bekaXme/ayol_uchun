@@ -10,6 +10,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< Updated upstream
     return const MaterialApp(home: Scaffold(),);
+=======
+    return MaterialApp(
+      home: Scaffold(
+        body: Column(),
+      ),
+    );
+>>>>>>> Stashed changes
   }
 }
