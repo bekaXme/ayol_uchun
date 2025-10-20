@@ -1,23 +1,31 @@
 import 'package:flutter/material.dart';
+import 'core/routers/routes.dart' as AppRouter;
+import 'core/utils/dependencies.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 void main() {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  final router = AppRouter.router;
+  runApp(MultiProvider(providers: dependencies, child: AyolUchun()));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class AyolUchun extends StatelessWidget {
+  const AyolUchun({super.key});
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< Updated upstream
-    return const MaterialApp(home: Scaffold(),);
-=======
-    return MaterialApp(
-      home: Scaffold(
-        body: Column(),
-      ),
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          routerConfig: AppRouter.router,
+        );
+      }
     );
->>>>>>> Stashed changes
   }
 }
